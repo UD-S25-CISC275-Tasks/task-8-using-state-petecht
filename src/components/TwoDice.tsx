@@ -7,12 +7,16 @@ function d6(): number {
 }
 
 function getTwoDifferentDice(): [number, number] {
-    let left: number = d6();
-    let right: number = d6();
-    while (left === right) {
-        right = d6();
+    const first = d6();
+    let second = d6();
+    if (first === second) {
+        // Get one more try; if still the same, just accept it
+        const retry = d6();
+        if (retry !== first) {
+            second = retry;
+        }
     }
-    return [left, right];
+    return [first, second];
 }
 
 export function TwoDice(): React.JSX.Element {
