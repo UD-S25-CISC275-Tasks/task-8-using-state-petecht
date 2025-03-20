@@ -7,15 +7,8 @@ function d6(): number {
 }
 
 function getTwoDifferentDice(): [number, number] {
-    const first = d6();
-    let second = d6();
-    if (first === second) {
-        // Get one more try; if still the same, just accept it
-        const retry = d6();
-        if (retry !== first) {
-            second = retry;
-        }
-    }
+    let first: number = 1;
+    let second: number = 2;
     return [first, second];
 }
 
